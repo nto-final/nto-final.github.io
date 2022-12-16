@@ -1,0 +1,69 @@
+<html>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <style>
+        .header{
+            width: calc(100% - 100px);
+            position: fixed;
+            z-index: 1000;
+            top:0px;
+            left: 0px;
+            border-radius: 0px 0px 14px 14px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;   
+            padding: 10px 50px; 
+            box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.05);
+            font-size: 32px;
+            outline: none;
+            border: none;
+        }
+        .arrow{
+            height: 40px;
+            position: fixed;
+            top:15px;
+            left: 25px;
+        }
+    </style>
+    <body style="margin : 0px; overflow: hidden;">
+        <div onclick="history.back();" class="header">
+            <img class="arrow" src="../src/images/arrow.svg">
+            <img height="50px" src="../src/images/PYC.svg">
+        </div>
+        <a-scene arjs embedded>
+            <a-assets>
+                <a-asset-item  id="horse" src="../src/models/horse.glb"></a-asset-item>
+                <a-asset-item  id="lollipop"  src="../src/models/lollipop.glb"></a-asset-item>
+                <a-asset-item  id="rabbit" src="../src/models/rabbit.glb"></a-asset-item>
+                <a-asset-item  id="picdec" src="../src/models/picdec.glb"></a-asset-item>
+                <a-asset-item  id="bread" src="../src/models/bread.glb"></a-asset-item>
+                <a-asset-item  id="snowman" src="../src/models/snowman.glb"></a-asset-item>
+            </a-assets>
+           
+
+            <a-marker  type='pattern' url='../src/markers/1.patt'>
+                <a-entity rotation="-90 0 0" scale="0.5 0.5 0.5"  gltf-model="#snowman" animation-mixer="clip:anim; loop:repeat;"></a-entity>
+            </a-marker>
+            <a-marker id="sound-marker" type='pattern' url='../src/markers/2.patt'>
+                <a-entity rotation="-90 0 0" scale="0.5 0.5 0.5"  gltf-model="#horse" animation-mixer="clip:anim; loop:repeat;"></a-entity>
+            </a-marker>
+            <a-marker type='pattern' url='../src/markers/3.patt'>
+                <a-entity rotation="-90 0 0" scale="0.25 0.25 0.25"  gltf-model="#lollipop" animation-mixer="clip:anim; loop:repeat;"></a-entity>
+            </a-marker>
+            <a-marker type='pattern' url='../src/markers/4.patt'>
+                <a-entity rotation="-90 0 0" scale="0.5 0.5 0.5"  gltf-model="#picdec" animation-mixer="clip:anim; loop:repeat;"></a-entity>
+            </a-marker>
+            <a-marker id="marker" type='pattern' url='../src/markers/5.patt'>
+                <a-entity rotation="-90 0 0" scale="0.5 0.5 0.5"  gltf-model="#bread" animation-mixer="clip:anim; loop:repeat;"></a-entity>
+            </a-marker>
+            <a-marker type='pattern' url='../src/markers/6.patt'>
+                <a-entity rotation="-90 0 0" scale="0.5 0.5 0.5"  gltf-model="#rabbit" animation-mixer="clip:anim; loop:repeat;"></a-entity>
+            </a-marker>
+           
+        <a-entity camera></a-entity>
+
+        </a-scene>
+    </body>
+</html>
